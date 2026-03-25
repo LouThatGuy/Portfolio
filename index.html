@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="@louthatguy | Portfolio">
+    <meta property="og:description" content="Check out my portfolio">
+    <meta property="og:image" content="https://lousportfolio.pages.dev/static/preview.png">
+    <meta property="og:url" content="https://lousportfolio.pages.dev/">
+    <meta property="og:type" content="website">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css?v=10">
+    <link rel="icon" href="static/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<button id="ambientBtn" onclick="toggleAmbient()" title="Ambient view">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+    </svg>
+</button>
+<body class="splash-active">
+    <div id="splash" onclick="enterSite()">
+        <h1 class="splash-name">Lou<em>'s</em> Portfolio</h1>
+        <p class="splash-sub">Roblox Developer</p>
+        <button class="splash-btn">Enter</button>
+        <p class="splash-hint">Click anywhere to continue</p>
+    </div>
+
+    <video autoplay muted loop playsinline id="bgVideo">
+        <source id="bgVideoSrc" src="static/bg1.mp4" type="video/mp4">
+    </video>
+    <audio id="bgMusic">
+        <source id="bgAudioSrc" src="static/bg1.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="music-controls">
+        <button class="music-btn" onclick="prevTrack()">⏮</button>
+        <button class="music-btn" id="musicBtn" onclick="toggleMusic()">♪ Music: OFF</button>
+        <button class="music-btn" onclick="nextTrack()">⏭</button>
+        <input type="range" min="0" max="1" step="0.01" value="0.15" id="volumeSlider" class="volume-slider" oninput="changeVolume(this.value)">
+    </div>
+
+    <div id="about-section" class="snap-section active-section">
+        <div class="about-card" id="aboutCard">
+            <div class="about-avatar-wrap">
+                <img src="static/avatar.png" class="about-avatar" alt="Lou" onerror="this.style.background='#333';this.removeAttribute('src')">
+            </div>
+            <div class="about-text">
+                <h1 class="about-name">Hello I'm <em>Lou</em></h1>
+                <p class="about-bio">Four years of Roblox scripting. Luau is where I started and I still spend most of my time in it.</p>
+                <p class="about-bio">I spend a lot of time on the details, how something feels, how the code is structured, whether it'd actually be fun to play. I'm always picking up new things, whether that's better ways to architect systems, optimizing for performance or just figuring out a cleaner way to solve a problem I've solved a dozen times before.</p>
+                <div class="about-actions">
+                    <div class="socials-row">
+                        <button class="btn-socials" onclick="toggleSocials()">My Socials <span class="arrow">→</span></button>
+                        <div class="social-icons" id="socialIcons">
+                            <a href="https://discord.com/users/1206262583154184269" target="_blank" class="social-icon discord" title="Discord">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                            </a>
+                            <a href="https://cash.app/$ByJk1" target="_blank" class="social-icon cashapp" title="Cash App">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.167 7.143a.87.87 0 0 0-.872-.872H9.707a.87.87 0 0 0-.872.872v.49h5.332v-.49zm-5.332 9.224h4.46a.87.87 0 0 0 .872-.872v-.49H8.835v.49a.87.87 0 0 0 .872.872zm8.168-13.2C15.44 1.154 13.252 0 10.863 0 8.474 0 6.286 1.154 4.997 3.167L3.44 5.49A6.857 6.857 0 0 0 2.4 9.163v5.674a6.857 6.857 0 0 0 1.04 3.673l1.557 2.323C6.286 22.846 8.474 24 10.863 24c2.389 0 4.577-1.154 5.866-3.167l1.557-2.323a6.857 6.857 0 0 0 1.04-3.673V9.163a6.857 6.857 0 0 0-1.04-3.673l-1.283-1.323zM15.5 14.97a2.61 2.61 0 0 1-2.61 2.61H11.5v.857a.857.857 0 0 1-1.714 0v-.857H8.5a2.61 2.61 0 0 1-2.61-2.61v-.328a.857.857 0 0 1 1.714 0v.328c0 .494.402.896.896.896h3.39c.494 0 .896-.402.896-.896v-.818c0-.404-.27-.758-.661-.863l-3.25-.875A2.567 2.567 0 0 1 6.99 10.38V9.03a2.61 2.61 0 0 1 2.61-2.61h1.286v-.857a.857.857 0 0 1 1.714 0v.857h.9a2.61 2.61 0 0 1 2.61 2.61v.328a.857.857 0 0 1-1.714 0V9.03a.896.896 0 0 0-.896-.896h-3.39a.896.896 0 0 0-.896.896v1.35c0 .404.27.758.661.863l3.25.875A2.567 2.567 0 0 1 15.5 14.15v.82z"/></svg>
+                            </a>
+                            <a href="https://www.roblox.com/users/5458706942/profile" target="_blank" class="social-icon roblox" title="Roblox">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.094 0L0 15.906 15.906 20 20 4.093zm9.297 10.9l-4.29-1.134 1.133-4.29 4.29 1.134z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="about-buttons">
+                        <button class="btn-examples" onclick="scrollToProjects()">Examples of my work <span class="ext">↗</span></button>
+                        <button class="btn-examples" onclick="scrollToContact()">Contact Me <span class="ext">↗</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects-section" class="snap-section projects-section">
+        <div class="projects-header">
+            <button class="back-btn" onclick="scrollToAbout()">↑ Back to top</button>
+            <h2 class="projects-title">My Work</h2>
+        </div>
+        <div class="main-content">
+            <nav class="side-nav" id="sideNav">
+                <a href="#project-1" class="nav-item">2D to 3D Plugin</a>
+                <a href="#project-2" class="nav-item">In-Dev Game</a>
+                <a href="#project-3" class="nav-item">Trampoline</a>
+                <a href="#project-4" class="nav-item">Rock Module</a>
+                <a href="#project-5" class="nav-item">Admin System</a>
+            </nav>
+            <div class="projects-scroll" id="projectsScroll">
+                <section id="project-1" class="section">
+                    <h2 class="section-title">2D to 3D Level Editor Plugin</h2>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/yGGnwXUuWOA?mute=1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </section>
+                <section id="project-2" class="section">
+                    <h2 class="section-title">In-Development Game Showcase (HEAVILY POSTPONED)</h2>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/9tjYwBxRDtg?mute=1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </section>
+                <section id="project-3" class="section">
+                    <h2 class="section-title">Trampoline — RDev Challenge</h2>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/rxHwL-0hkVg?mute=1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </section>
+                <section id="project-4" class="section">
+                    <h2 class="section-title">Rock Module Showcase</h2>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/J5XZ_iTHItg?mute=1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </section>
+                <section id="project-5" class="section">
+                    <h2 class="section-title">Admin GUI & System Showcase</h2>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/3fc6Z0KXQxk?mute=1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact-section" class="snap-section contact-section">
+        <div class="contact-card">
+            <h2 class="contact-title">Contact Me</h2>
+            <p class="contact-sub">Got something in mind? Send a message.</p>
+
+            <form class="contact-form" onsubmit="sendMessage(event)">
+                <input type="text" placeholder="Your discord username" required>
+                <input type="email" placeholder="Your email" required>
+                <textarea placeholder="Your message..." rows="5" required></textarea>
+                <button type="submit" class="contact-btn">Send</button>
+            </form>
+
+            <button class="back-btn" onclick="scrollToAbout()">← Back</button>
+        </div>
+    </div>
+
+    <script src="static/port.js?v=12"></script>
+    <script>
+        const tracks = [
+            { video: "static/bg1.mp4", audio: "static/bg1.mp3" },
+            { video: "static/bg2.mp4", audio: "static/bg2.mp3" },
+            { video: "static/bg3.mp4", audio: "static/bg3.mp3" },
+            { video: "static/bg4.mp4", audio: "static/bg4.mp3" },
+            { video: "static/bg5.mp4", audio: "static/bg5.mp3" },
+            { video: "static/bg6.mp4", audio: "static/bg6.mp3" },
+            { video: "static/bg7.mp4", audio: "static/bg7.mp3" }
+        ];
+
+        let currentTrack = 0;
+        let isPlaying = false;
+
+        const music = document.getElementById("bgMusic");
+        const btn = document.getElementById("musicBtn");
+        const video = document.getElementById("bgVideo");
+        const videoSrc = document.getElementById("bgVideoSrc");
+        const audioSrc = document.getElementById("bgAudioSrc");
+
+        music.volume = 0.15;
+
+        function loadTrack(index) {
+            const track = tracks[index];
+            videoSrc.src = track.video;
+            video.load();
+            video.play();
+            audioSrc.src = track.audio;
+            music.load();
+            music.volume = document.getElementById("volumeSlider").value;
+            if (isPlaying) {
+                music.play().then(() => {
+                    btn.textContent = "♪ Music: ON";
+                }).catch(() => {});
+            }
+        }
+
+        function nextTrack() {
+            currentTrack = (currentTrack + 1) % tracks.length;
+            loadTrack(currentTrack);
+        }
+
+        function prevTrack() {
+            currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+            loadTrack(currentTrack);
+        }
+
+        function enterSite() {
+            document.getElementById("splash").classList.add("hidden");
+            document.body.classList.remove("splash-active");
+            music.play().then(() => {
+                btn.textContent = "♪ Music: ON";
+                isPlaying = true;
+            }).catch(() => {});
+        }
+
+        let ambientMode = false;
+
+        function toggleAmbient() {
+            ambientMode = !ambientMode;
+            document.body.classList.toggle('ambient-mode', ambientMode);
+            document.getElementById('ambientBtn').classList.toggle('active', ambientMode);
+        }
+
+        music.addEventListener("ended", () => nextTrack());
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                btn.textContent = "♪ Music: ON";
+                isPlaying = true;
+            } else {
+                music.pause();
+                btn.textContent = "♪ Music: OFF";
+                isPlaying = false;
+            }
+        }
+
+        function changeVolume(val) {
+            music.volume = val;
+        }
+
+        function startMedia() {
+            music.play().then(() => {
+                btn.textContent = "♪ Music: ON";
+                isPlaying = true;
+            }).catch(() => {});
+        }
+
+        window.addEventListener("load", startMedia);
+        document.addEventListener("click", startMedia, { once: true });
+        document.addEventListener("mousemove", startMedia, { once: true });
+        document.addEventListener("load", startMedia, { once: true });
+    </script>
+</body>
+</html>
