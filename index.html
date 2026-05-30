@@ -169,7 +169,7 @@
             const track = tracks[index];
             videoSrc.src = track.video;
             video.load();
-            video.play();
+            video.addEventListener('canplay', () => video.play(), { once: true });
             audioSrc.src = track.audio;
             music.load();
             music.volume = document.getElementById("volumeSlider").value;
