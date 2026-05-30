@@ -9,7 +9,7 @@
     <meta property="og:image" content="https://lousportfolio.pages.dev/static/preview.png">
     <meta property="og:url" content="https://lousportfolio.pages.dev/">
     <meta property="og:type" content="website">
-    <title>Home</title>
+    <title>Lou | Scripting Portfolio</title>
     <link rel="stylesheet" type="text/css" href="static/style.css?v=10">
     <link rel="icon" href="static/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,7 +51,7 @@
             <div class="about-text">
                 <h1 class="about-name">Hello I'm <em>Lou</em></h1>
                 <p class="about-bio">Four years of Roblox scripting. Luau is where I started and I still spend most of my time in it.</p>
-                <p class="about-bio">I spend a lot of time on the details, how something feels, how the code is structured, whether it'd actually be fun to play. I'm always picking up new things, whether that's better ways to architect systems, optimizing for performance or just figuring out a cleaner way to solve a problem I've solved a dozen times before.</p>
+                <p class="about-bio">I spend a lot of time on the details, how something feels, how the code is structured, whether it'd actually be fun to play. I'm always picking up new things, whether that's better ways to make systems, optimizing for performance or just figuring out a cleaner way to solve a problem I've solved a dozen times before.</p>
                 <div class="about-actions">
                     <div class="socials-row">
                         <button class="btn-socials" onclick="toggleSocials()">My Socials <span class="arrow">→</span></button>
@@ -142,6 +142,7 @@
 
     <script src="static/port.js?v=12"></script>
     <script>
+        
         const tracks = [
             { video: "static/bg1.mp4", audio: "static/bg1.mp3" },
             { video: "static/bg2.mp4", audio: "static/bg2.mp3" },
@@ -149,7 +150,8 @@
             { video: "static/bg4.mp4", audio: "static/bg4.mp3" },
             { video: "static/bg5.mp4", audio: "static/bg5.mp3" },
             { video: "static/bg6.mp4", audio: "static/bg6.mp3" },
-            { video: "static/bg7.mp4", audio: "static/bg7.mp3" }
+            { video: "static/bg7.mp4", audio: "static/bg7.mp3" },
+            { video: "static/bg8.mp4", audio: "static/bg8.mp3" },
         ];
 
         let currentTrack = 0;
@@ -167,7 +169,7 @@
             const track = tracks[index];
             videoSrc.src = track.video;
             video.load();
-            video.play();
+            video.addEventListener('canplay', () => video.play(), { once: true });
             audioSrc.src = track.audio;
             music.load();
             music.volume = document.getElementById("volumeSlider").value;
