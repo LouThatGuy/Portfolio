@@ -22,6 +22,8 @@ body {
     z-index: -1;
     filter: blur(6px) brightness(0.4);
     transform: scale(1.05);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .snap-section {
